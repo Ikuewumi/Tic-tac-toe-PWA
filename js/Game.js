@@ -24,6 +24,7 @@ class Game {
         this.currentPlayer = this.playerOne;
         this.gameBoard = gameBoard;
         this.cells = cells;
+        this.playing = false;
     }
     init() {
         this.reset();
@@ -39,17 +40,23 @@ class Game {
         });
     }
     play(element) {
+        if (this.playing) {
+            return;
+        }
         if (element.innerHTML > '') {
             return;
         }
+        this.playing = true;
         element.innerHTML = this.currentPlayer.image;
         this.currentPlayer.moves.push(element.id);
         sleep(200).then(() => {
             this.checkMove(this.currentPlayer);
             this.showCurrentPlayer();
+            this.playing = false;
         });
     }
     softReset() {
+        this.playing = false;
         this.updateUI();
         this.playerOne.moves = [];
         this.playerTwo.moves = [];
@@ -82,6 +89,7 @@ class Game {
     }
     // Reset Players 
     reset() {
+        this.playing = false;
         this.playerOne.score = 0;
         this.playerTwo.score = 0;
         this.playerOne.moves = [];

@@ -6,7 +6,6 @@ const playerOne = document.querySelector('div.pone');
 const playerTwo = document.querySelector('div.ptwo');
 const resetBtn = document.querySelector('button.reset_btn');
 let newGame = null;
-console.log(playerOne, playerTwo);
 document.addEventListener('DOMContentLoaded', (event) => {
     event.stopPropagation();
     newGame = new Game({
