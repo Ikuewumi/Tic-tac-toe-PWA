@@ -359,6 +359,7 @@ footer {
    width: min(var(--width-140), 70vmin);
    margin-inline: auto;
    margin-top: var(--p-30);
+   padding: var(--p-20);
    
    text-align: center;
    font-size: var(--size-30);
