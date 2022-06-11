@@ -167,7 +167,6 @@ body {
    font-family: var(--f-sans); 
    width: 100vw;
    min-height: 100vh;
-   overflow-x: hidden;
 }
 
 *::selection {
@@ -313,6 +312,8 @@ section#game {
 
 }
 
+
+
 section#game > span {
    display: flex;
    align-items: center;
@@ -354,13 +355,18 @@ section#game > span svg {
       display: none;
    }
 }
+@media (max-width: 768px) {
+   section#game {
+      width: 70vmin;
+      height: 70vmin;
+   }
+}
 
 footer {
    margin-top: var(--p-50);
    width: min(var(--width-140), 70vmin);
    margin-inline: auto;
    margin-top: var(--p-30);
-   padding: var(--p-20);
    
    text-align: center;
    font-size: var(--size-30);
