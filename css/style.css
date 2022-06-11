@@ -1,0 +1,379 @@
+@font-face {
+   font-family: monospace-custom;
+   src: url(../assets/OverpassMono-Regular.ttf);
+}
+
+/* Variables */
+
+:root {
+   /** Font Family Scale **/
+   --f-sans: 'QuickSand', 'sans-serif';
+   --f-script: 'monospace-custom', 'Fira Mono', 'monospace';
+   --f-serif: 'Playfair Display', 'serif';
+   --f-slab: 'AlexandriaFLF';
+   --f-display: 'Exo 2';
+   --f-display-sans: 'Exo 2', 'sans-seerif';
+   --f-display-wide: 'wide';
+   --f-display-italic: 'Gist', cursive;
+
+
+   /** Colors Scale **/
+   /* Grey Scale */
+   --grey-10: #474747;
+   --grey-20: #616161;
+   --grey-30: #6b6b6b;
+   --grey-40: #808080;
+   --grey-50: #949494;
+   --grey-60: #a6a6a6;
+   --grey-70: #b3b3b3;
+   --grey-80: #cccccc;
+   --grey-90: #e6e6e6;
+   --grey-100: #f7f7f7;
+
+   /* Primary Color Scale */
+   --pri-10: #270a29;
+   --pri-20: #4f1452;
+   --pri-30: #8d2593;
+   --pri-40: #ad2db4;
+   --pri-50: #c433cc;
+   --pri-60: #d05cd6;
+   --pri-70: #dc85e0;
+   --pri-80: #e8adeb;
+   --pri-90: #f3d6f5;
+   --pri-100: #f8e7f9;
+
+   /* Accent Color Scale */
+   --acc-10: #16092a;
+   --acc-20: #2c1254;
+   --acc-30: #502197;
+   --acc-40: #6228b8;
+   --acc-50: #6f2ed1;
+   --acc-60: #8c58da;
+   --acc-70: #a982e3;
+   --acc-80: #c5abed;
+   --acc-90: #e2d5f6;
+   --acc-100: #eee6f9;
+
+   /* Complement Color Scale */
+   --comp-10: #162a09;
+   --comp-20: #2b5412;
+   --comp-30: #4e9721;
+   --comp-40: #5fb828;
+   --comp-50: #6cd12e;
+   --comp-60: #8ada58;
+   --comp-70: #a7e382;
+   --comp-80: #c4edab;
+   --comp-90: #e2f6d5;
+   --comp-100: #edf9e6;
+
+   /* Width Scale */
+   --width-10: 4px;
+   --width-20: 8px;
+   --width-30: 12px;
+   --width-40: 16px;
+   --width-50: 24px;
+   --width-60: 48px;
+   --width-70: 64px;
+   --width-80: 96px;
+   --width-100: 128px;
+   --width-110: 192px;
+   --width-120: 256px;
+   --width-130: 384px;
+   --width-140: 512px;
+   --width-150: 640px;
+   --width-160: 768px;
+
+   /** Padding Scale **/
+   --p-10: 0.2rem;
+   --p-20: 0.5rem;
+   --p-30: 1.1rem;
+   --p-40: 1.6rem;
+   --p-50: 2.0rem;
+   --p-60: 2.5rem;
+   --p-70: 2.9rem;
+   --p-80: 3.5rem;
+   --p-90: 4.0rem;
+   --p-100: 4.5rem;
+   --p-110: 5.0rem;
+
+   /** Border Radius Scale **/
+   --br-10: 0.02rem;
+   --br-20: 0.05rem;
+   --br-30: 0.11rem;
+   --br-40: 0.17rem;
+   --br-50: 0.20rem;
+   --br-60: 0.25rem;
+   --br-70: 0.30rem;
+   --br-80: 0.34rem;
+   --br-90: 0.39rem;
+   --br-100: 0.45rem;
+   --br-110: 0.50rem;
+   --br-120: 0.60rem;
+   --br-130: 0.74rem;
+   --br-140: 0.87rem;
+   --br-150: 0.90rem;
+   --br-160: 1.2rem;
+   --br-190: 30%;
+
+   /** TypeScale **/
+   --size-10: 12px;
+   --size-20: 13px;
+   --size-30: 15px;
+   --size-40: 17px;
+   --size-50: 20px;
+   --size-60: 23px;
+   --size-70: 27px;
+   --size-80: 30px;
+   --size-90: 36px;
+   --size-100: 48px;
+   --size-110: 53px;
+   --size-120: 60px;
+   --size-130: 72px;
+
+   /* Weight Scale */
+   --weight-10: 200;
+   --weight-20: 300;
+   --weight-30: 500;
+   --weight-40: 600;
+   --weight-50: 800;
+
+   /* Line Height Scale */
+   --lh-10: 0.9;
+   --lh-20: 1.0;
+   --lh-30: 1.2;
+   --lh-40: 1.5;
+   --lh-50: 1.7;
+
+   /* Z-index Scale */
+   --z-10: 1;
+   --z-20: 2;
+   --z-30: 3;
+   --z-40: 4;
+   --z-50: 6;
+
+}
+
+/* Global Settings */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* utilities */ 
+body {
+   background-color: var(--acc-80);
+   position: relative; 
+   font-family: var(--f-sans); 
+   width: 100vw;
+   min-height: 100vh;
+}
+
+*::selection {
+   background: var(--acc-50);
+   color: var(--comp-50);
+}
+
+button {
+   outline: none;
+   border: none;
+}
+
+header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: var(--p-40) var(--p-40);
+   background: var(--acc-100);
+
+   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 0.05);
+}
+
+header *[data-bar] {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   /* width: ;/ */
+}
+
+button[data-bar] {
+   padding: var(--p-20) var(--p-30);
+
+   background: var(--acc-90);
+   border-radius: var(--br-160);
+
+   cursor: pointer;
+
+   color: var(--pri-50);
+
+   outline: var(--pri-50);
+   outline-offset: var(--br-50);
+
+   font-family: var(--f-script);
+   font-weight: var(--weight-40);
+
+   gap: var(--p-20);
+}
+
+button[data-bar] span {
+   line-height: var(--lh-10);
+   margin-top: var(--br-40);
+}
+button[data-bar] svg {
+   fill: var(--acc-80);
+   width: var(--width-40);
+}
+
+span[data-bar] svg {
+   width: var(--width-70);
+   opacity: 0.5;
+}
+span[data-bar] strong {
+   font-weight: var(--weight-40);
+   font-family: var(--f-script);
+   line-height: var(--lh-10);
+}
+span[data-bar] {
+   color: var(--pri-60);
+   font-size: var(--size-50);
+   gap: var(--p-10);
+}
+
+main {
+   width: min(var(--width-140), 70vmin);
+   margin-inline: auto;
+}
+
+main section[data-bar] {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: var(--p-30);
+   margin-top: var(--size-60);
+}
+
+main div[data-bar] {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: var(--p-30);
+   width: fit-content;
+   border:2px solid var(--pri-60);
+   padding: var(--p-20) var(--p-30);
+   border-radius: var(--br-160);
+}
+
+main div[data-bar].active {
+   background: var(--acc-90);
+   border-color: var(--pri-60);
+}
+
+main div[data-bar].active h3 {
+   color: var(--pri-70);
+
+}
+
+main div[data-bar].active span {
+   color: var(--pri-40);
+
+}
+
+main div[data-bar] h3 {
+   font-family: var(--f-script);
+   font-weight: var(--weight-40);
+   font-size: var(--size-40);
+   color: var(--pri-60);
+}
+
+main div[data-bar] span {
+   font-size: var(--size-70);
+   font-weight: var(--weight-40);
+   color: var(--pri-10);
+}
+
+main div[data-bar] * {
+   line-height: var(--lh-10);
+}
+
+section#game {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+
+   margin-block: var(--width-60);
+   background: var(--pri-100);
+   border-radius: var(--br-160);
+
+   width: min(var(--width-130), 70vmin);
+   height: min(var(--width-130), 70vmin);
+   margin-inline: auto;
+   box-shadow: 0 1px 4px 2px rgb(0 0 0 / 0.05);
+
+}
+
+section#game > span {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: none;
+   border-width: 1px;
+   border-style: solid;
+   border-color: var(--pri-80);
+   cursor: pointer;
+   padding: var(--p-30);
+}
+
+section#game  span.t {
+   border-top-color: transparent;
+}
+
+section#game  span.l {
+   border-left-color: transparent;
+}
+
+section#game  span.r {
+   border-right-color: transparent;
+}
+
+section#game  span.b {
+   border-bottom-color: transparent;
+}
+
+section#game > span svg {
+   max-width: 90%;
+}
+
+@media (max-width: 450px) {
+   header strong {
+      display: none;
+   }
+
+   header button[data-bar] span {
+      display: none;
+   }
+}
+
+footer {
+   margin-top: var(--p-50);
+   width: min(var(--width-140), 70vmin);
+   margin-inline: auto;
+   margin-top: var(--p-30);
+   
+   text-align: center;
+   font-size: var(--size-30);
+   color: var(--grey-20);
+}
+
+footer span {
+   
+   font-family: var(--f-script);
+   line-height: var(--lh-30);
+   font-size: var(--size-40);
+   color: var(--grey-10);
+   color: var(--acc-40);
+   cursor: pointer;
+
+
+}
+
