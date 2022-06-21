@@ -1,4 +1,4 @@
-const staticCache = 'static-tic-tac-toe-v9'
+const staticCache = 'static-tic-tac-toe-v10'
 const assets = [
   '/',
   '/index.html',
